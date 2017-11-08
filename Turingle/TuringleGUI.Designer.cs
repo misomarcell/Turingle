@@ -1,6 +1,6 @@
 ﻿namespace Turingle
 {
-    partial class Form1
+    partial class TuringleGUI
     {
         /// <summary>
         /// Required designer variable.
@@ -41,12 +41,15 @@
             this.buttonTestSite = new System.Windows.Forms.Button();
             this.buttonSend = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.buttonCreate = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.CID = new System.Windows.Forms.TextBox();
+            this.buttonNewConv = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
+            this.buttonCreate = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.siteSelector = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -54,9 +57,9 @@
             // 
             // apiKey
             // 
-            this.apiKey.Location = new System.Drawing.Point(57, 19);
+            this.apiKey.Location = new System.Drawing.Point(64, 19);
             this.apiKey.Name = "apiKey";
-            this.apiKey.Size = new System.Drawing.Size(264, 20);
+            this.apiKey.Size = new System.Drawing.Size(257, 20);
             this.apiKey.TabIndex = 0;
             // 
             // textBox2
@@ -69,7 +72,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(64, 100);
+            this.textBox3.Location = new System.Drawing.Point(64, 131);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(257, 20);
             this.textBox3.TabIndex = 2;
@@ -95,7 +98,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 103);
+            this.label3.Location = new System.Drawing.Point(27, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 5;
@@ -104,13 +107,13 @@
             // buttonTestBot
             // 
             this.buttonTestBot.Enabled = false;
-            this.buttonTestBot.Location = new System.Drawing.Point(203, 126);
+            this.buttonTestBot.Location = new System.Drawing.Point(203, 157);
             this.buttonTestBot.Name = "buttonTestBot";
             this.buttonTestBot.Size = new System.Drawing.Size(118, 23);
             this.buttonTestBot.TabIndex = 6;
             this.buttonTestBot.Text = "Send test message";
             this.buttonTestBot.UseVisualStyleBackColor = true;
-            this.buttonTestBot.Click += new System.EventHandler(this.button1_Click);
+            this.buttonTestBot.Click += new System.EventHandler(this.buttonTestBot_Click);
             // 
             // webBrowser1
             // 
@@ -123,9 +126,9 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(40, 46);
+            this.textBox4.Location = new System.Drawing.Point(64, 46);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(281, 20);
+            this.textBox4.Size = new System.Drawing.Size(257, 20);
             this.textBox4.TabIndex = 9;
             // 
             // label4
@@ -145,7 +148,7 @@
             this.buttonTestSite.TabIndex = 11;
             this.buttonTestSite.Text = "Send test message";
             this.buttonTestSite.UseVisualStyleBackColor = true;
-            this.buttonTestSite.Click += new System.EventHandler(this.button2_Click);
+            this.buttonTestSite.Click += new System.EventHandler(this.buttonTestSite_Click);
             // 
             // buttonSend
             // 
@@ -156,10 +159,13 @@
             this.buttonSend.TabIndex = 12;
             this.buttonSend.Text = "Send response";
             this.buttonSend.UseVisualStyleBackColor = true;
-            this.buttonSend.Click += new System.EventHandler(this.button3_Click);
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.CID);
+            this.groupBox1.Controls.Add(this.buttonNewConv);
             this.groupBox1.Controls.Add(this.buttonHelp);
             this.groupBox1.Controls.Add(this.buttonCreate);
             this.groupBox1.Controls.Add(this.label1);
@@ -171,35 +177,71 @@
             this.groupBox1.Controls.Add(this.buttonTestBot);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(327, 157);
+            this.groupBox1.Size = new System.Drawing.Size(327, 187);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cleverbot";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(33, 103);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(25, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "CID";
+            // 
+            // CID
+            // 
+            this.CID.Location = new System.Drawing.Point(64, 100);
+            this.CID.Name = "CID";
+            this.CID.ReadOnly = true;
+            this.CID.Size = new System.Drawing.Size(257, 20);
+            this.CID.TabIndex = 10;
+            // 
+            // buttonNewConv
+            // 
+            this.buttonNewConv.Location = new System.Drawing.Point(93, 45);
+            this.buttonNewConv.Name = "buttonNewConv";
+            this.buttonNewConv.Size = new System.Drawing.Size(104, 23);
+            this.buttonNewConv.TabIndex = 9;
+            this.buttonNewConv.Text = "New Conversation";
+            this.buttonNewConv.UseVisualStyleBackColor = true;
+            this.buttonNewConv.Click += new System.EventHandler(this.buttonNewConv_Click);
+            // 
+            // buttonHelp
+            // 
+            this.buttonHelp.Location = new System.Drawing.Point(64, 45);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(23, 23);
+            this.buttonHelp.TabIndex = 8;
+            this.buttonHelp.Text = "?";
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
+            // buttonCreate
+            // 
+            this.buttonCreate.Location = new System.Drawing.Point(203, 45);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(118, 23);
+            this.buttonCreate.TabIndex = 7;
+            this.buttonCreate.Text = "Create";
+            this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.siteSelector);
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.buttonTestSite);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(12, 175);
+            this.groupBox2.Location = new System.Drawing.Point(12, 205);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(327, 106);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chat site";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "http://7strangers.com/talk"});
-            this.comboBox1.Location = new System.Drawing.Point(40, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(281, 21);
-            this.comboBox1.TabIndex = 0;
             // 
             // label5
             // 
@@ -210,37 +252,28 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "Site";
             // 
+            // siteSelector
+            // 
+            this.siteSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.siteSelector.FormattingEnabled = true;
+            this.siteSelector.Items.AddRange(new object[] {
+            "7strangers.com"});
+            this.siteSelector.Location = new System.Drawing.Point(64, 19);
+            this.siteSelector.Name = "siteSelector";
+            this.siteSelector.Size = new System.Drawing.Size(257, 21);
+            this.siteSelector.TabIndex = 0;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.buttonSend);
-            this.groupBox3.Location = new System.Drawing.Point(12, 287);
+            this.groupBox3.Location = new System.Drawing.Point(12, 317);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(327, 57);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Have fun";
             // 
-            // buttonCreate
-            // 
-            this.buttonCreate.Location = new System.Drawing.Point(203, 45);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(118, 23);
-            this.buttonCreate.TabIndex = 7;
-            this.buttonCreate.Text = "Create";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // buttonHelp
-            // 
-            this.buttonHelp.Location = new System.Drawing.Point(174, 45);
-            this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(23, 23);
-            this.buttonHelp.TabIndex = 8;
-            this.buttonHelp.Text = "?";
-            this.buttonHelp.UseVisualStyleBackColor = true;
-            this.buttonHelp.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // Form1
+            // TuringleGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -249,10 +282,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.webBrowser1);
-            this.Name = "Form1";
+            this.Name = "TuringleGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Turingle - Talk with robots!";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.TuringleGUI_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -279,10 +312,13 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox siteSelector;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonHelp;
+        private System.Windows.Forms.Button buttonNewConv;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox CID;
     }
 }
 
