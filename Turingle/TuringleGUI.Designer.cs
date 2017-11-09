@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.apiKey = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.botOutput = new System.Windows.Forms.TextBox();
+            this.botInput = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.buttonTestBot = new System.Windows.Forms.Button();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.siteInput = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.buttonTestSite = new System.Windows.Forms.Button();
             this.buttonSend = new System.Windows.Forms.Button();
@@ -50,8 +50,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.siteSelector = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.autoReply = new System.Windows.Forms.CheckBox();
             this.buttonStartNew = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -64,20 +64,20 @@
             this.apiKey.Size = new System.Drawing.Size(257, 20);
             this.apiKey.TabIndex = 0;
             // 
-            // textBox2
+            // botOutput
             // 
-            this.textBox2.Location = new System.Drawing.Point(64, 74);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(257, 20);
-            this.textBox2.TabIndex = 1;
+            this.botOutput.Location = new System.Drawing.Point(64, 157);
+            this.botOutput.Name = "botOutput";
+            this.botOutput.ReadOnly = true;
+            this.botOutput.Size = new System.Drawing.Size(257, 20);
+            this.botOutput.TabIndex = 1;
             // 
-            // textBox3
+            // botInput
             // 
-            this.textBox3.Location = new System.Drawing.Point(64, 183);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(257, 20);
-            this.textBox3.TabIndex = 2;
+            this.botInput.Location = new System.Drawing.Point(64, 183);
+            this.botInput.Name = "botInput";
+            this.botInput.Size = new System.Drawing.Size(257, 20);
+            this.botInput.TabIndex = 2;
             // 
             // label1
             // 
@@ -91,7 +91,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 77);
+            this.label2.Location = new System.Drawing.Point(19, 160);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 13);
             this.label2.TabIndex = 4;
@@ -126,12 +126,12 @@
             this.webBrowser1.Size = new System.Drawing.Size(619, 494);
             this.webBrowser1.TabIndex = 7;
             // 
-            // textBox4
+            // siteInput
             // 
-            this.textBox4.Location = new System.Drawing.Point(64, 46);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(257, 20);
-            this.textBox4.TabIndex = 9;
+            this.siteInput.Location = new System.Drawing.Point(64, 46);
+            this.siteInput.Name = "siteInput";
+            this.siteInput.Size = new System.Drawing.Size(257, 20);
+            this.siteInput.TabIndex = 9;
             // 
             // label4
             // 
@@ -172,8 +172,8 @@
             this.groupBox1.Controls.Add(this.buttonCreate);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.apiKey);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.botOutput);
+            this.groupBox1.Controls.Add(this.botInput);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.buttonTestBot);
@@ -187,7 +187,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(33, 103);
+            this.label6.Location = new System.Drawing.Point(33, 77);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(25, 13);
             this.label6.TabIndex = 11;
@@ -195,7 +195,7 @@
             // 
             // CID
             // 
-            this.CID.Location = new System.Drawing.Point(64, 100);
+            this.CID.Location = new System.Drawing.Point(64, 74);
             this.CID.Multiline = true;
             this.CID.Name = "CID";
             this.CID.ReadOnly = true;
@@ -236,7 +236,7 @@
             // 
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.siteSelector);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.siteInput);
             this.groupBox2.Controls.Add(this.buttonTestSite);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(12, 259);
@@ -268,7 +268,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.checkBox1);
+            this.groupBox3.Controls.Add(this.autoReply);
             this.groupBox3.Controls.Add(this.buttonStartNew);
             this.groupBox3.Controls.Add(this.buttonSend);
             this.groupBox3.Location = new System.Drawing.Point(12, 371);
@@ -276,7 +276,19 @@
             this.groupBox3.Size = new System.Drawing.Size(327, 77);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Have fun";
+            this.groupBox3.Text = "Conversation";
+            // 
+            // autoReply
+            // 
+            this.autoReply.AutoSize = true;
+            this.autoReply.Checked = true;
+            this.autoReply.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autoReply.Location = new System.Drawing.Point(248, 49);
+            this.autoReply.Name = "autoReply";
+            this.autoReply.Size = new System.Drawing.Size(73, 17);
+            this.autoReply.TabIndex = 16;
+            this.autoReply.Text = "Auto reply";
+            this.autoReply.UseVisualStyleBackColor = true;
             // 
             // buttonStartNew
             // 
@@ -287,18 +299,6 @@
             this.buttonStartNew.Text = "New chat";
             this.buttonStartNew.UseVisualStyleBackColor = true;
             this.buttonStartNew.Click += new System.EventHandler(this.buttonStartNew_Click);
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Location = new System.Drawing.Point(248, 49);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(73, 17);
-            this.checkBox1.TabIndex = 16;
-            this.checkBox1.Text = "Auto reply";
-            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // TuringleGUI
             // 
@@ -326,14 +326,14 @@
         #endregion
 
         private System.Windows.Forms.TextBox apiKey;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox botOutput;
+        private System.Windows.Forms.TextBox botInput;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button buttonTestBot;
         private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox siteInput;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button buttonTestSite;
         private System.Windows.Forms.Button buttonSend;
@@ -348,7 +348,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox CID;
         private System.Windows.Forms.Button buttonStartNew;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox autoReply;
     }
 }
 

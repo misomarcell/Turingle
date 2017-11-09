@@ -33,7 +33,7 @@ namespace Turingle
                 receivedCount = 0;
             }
 
-            if (!checkBox1.Checked)
+            if (!autoReply.Checked)
                 return;
             int temp_receivedCount = chatSite.GetReceivedCount();
             if (temp_receivedCount != receivedCount)
@@ -51,6 +51,9 @@ namespace Turingle
 
         private void TuringleGUI_Load(object sender, EventArgs e)
         {
+
+
+
             switch (siteSelector.Text)
             {
                 case "7strangers.com":
@@ -86,12 +89,12 @@ namespace Turingle
 
         private void buttonTestBot_Click(object sender, EventArgs e)
         {
-            textBox2.Text = cleverBot.GetResponse(textBox3.Text);
+            botOutput.Text = cleverBot.GetResponse(botInput.Text);
         }
 
         private void buttonTestSite_Click(object sender, EventArgs e)
         {
-            chatSite.SendMessage(textBox4.Text);
+            chatSite.SendMessage(siteInput.Text);
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
