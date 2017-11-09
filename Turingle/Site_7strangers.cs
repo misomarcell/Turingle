@@ -14,7 +14,7 @@ namespace Turingle
 
         public Site_7strangers(WebBrowser WebBrowser) : base(WebBrowser)
         {
-            this.webBrowser = WebBrowser;
+            webBrowser = WebBrowser;
         }
 
         public string GetChatURL()
@@ -24,18 +24,19 @@ namespace Turingle
 
         public string GetPartnerLastMessage()
         {
-            HtmlElementCollection messages = webBrowser.Document.GetElementsByTagName("div");
+           HtmlElementCollection messages = webBrowser.Document.GetElementsByTagName("div");
 
-
-            HtmlElement last = null;
+            HtmlElement lastMessageElement = null;
+            string lastMessage = String.Empty;
             foreach (HtmlElement message in messages)
             {
                 if (message.GetAttribute("className") == "youmsg stranger")
-                    last = message;
-            }
-
-            string lastMessage = last.InnerText.Replace("Stranger:", "");
-            Debug.WriteLine("Last response: " + lastMessage);
+                {
+                    lastMessageElement = message;
+                    lastMessage = lastMessageElement.InnerText.Replace("Stranger:", "");
+                }
+                    
+            }     
 
             return lastMessage;
         }

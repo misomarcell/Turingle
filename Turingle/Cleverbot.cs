@@ -10,15 +10,13 @@ using System.Windows.Forms;
 
 namespace Turingle
 {
-    public delegate void BotCreatedEventHandler();
-    public delegate void BotConversationChanger();
+    public delegate void BotEventHandler();
     public class Cleverbot
     {
         public string convID { get; set; }
         public string apiKey { get; set; }
 
-        public static event BotCreatedEventHandler BotCreated;
-        public event BotConversationChanger ConversationChanged;
+        public static event BotEventHandler BotCreated;
 
         public Cleverbot(string apiKey)
         {
@@ -50,7 +48,6 @@ namespace Turingle
 
         public void NewConversation()
         {
-            ConversationChanged.Invoke();
             convID = String.Empty;
         }
     }

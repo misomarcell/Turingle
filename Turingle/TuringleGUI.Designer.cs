@@ -72,7 +72,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(64, 131);
+            this.textBox3.Location = new System.Drawing.Point(64, 183);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(257, 20);
             this.textBox3.TabIndex = 2;
@@ -80,7 +80,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Location = new System.Drawing.Point(13, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(45, 13);
             this.label1.TabIndex = 3;
@@ -98,7 +98,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 134);
+            this.label3.Location = new System.Drawing.Point(27, 186);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 5;
@@ -107,7 +107,7 @@
             // buttonTestBot
             // 
             this.buttonTestBot.Enabled = false;
-            this.buttonTestBot.Location = new System.Drawing.Point(203, 157);
+            this.buttonTestBot.Location = new System.Drawing.Point(203, 209);
             this.buttonTestBot.Name = "buttonTestBot";
             this.buttonTestBot.Size = new System.Drawing.Size(118, 23);
             this.buttonTestBot.TabIndex = 6;
@@ -134,7 +134,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 49);
+            this.label4.Location = new System.Drawing.Point(27, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(31, 13);
             this.label4.TabIndex = 10;
@@ -177,7 +177,7 @@
             this.groupBox1.Controls.Add(this.buttonTestBot);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(327, 187);
+            this.groupBox1.Size = new System.Drawing.Size(327, 241);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cleverbot";
@@ -194,9 +194,10 @@
             // CID
             // 
             this.CID.Location = new System.Drawing.Point(64, 100);
+            this.CID.Multiline = true;
             this.CID.Name = "CID";
             this.CID.ReadOnly = true;
-            this.CID.Size = new System.Drawing.Size(257, 20);
+            this.CID.Size = new System.Drawing.Size(257, 62);
             this.CID.TabIndex = 10;
             // 
             // buttonNewConv
@@ -236,7 +237,7 @@
             this.groupBox2.Controls.Add(this.textBox4);
             this.groupBox2.Controls.Add(this.buttonTestSite);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(12, 205);
+            this.groupBox2.Location = new System.Drawing.Point(12, 259);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(327, 106);
             this.groupBox2.TabIndex = 14;
@@ -246,7 +247,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 22);
+            this.label5.Location = new System.Drawing.Point(33, 22);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(25, 13);
             this.label5.TabIndex = 15;
@@ -266,7 +267,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.buttonSend);
-            this.groupBox3.Location = new System.Drawing.Point(12, 317);
+            this.groupBox3.Location = new System.Drawing.Point(12, 371);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(327, 57);
             this.groupBox3.TabIndex = 15;
