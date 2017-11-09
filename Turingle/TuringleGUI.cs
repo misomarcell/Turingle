@@ -11,7 +11,7 @@ namespace Turingle
     {
 
         Cleverbot bot;
-        IChatSite chatSite;
+        ChatSite chatSite;
 
         public TuringleGUI()
         {
