@@ -23,5 +23,20 @@ namespace Turingle
         abstract public void StartNewChat(Cleverbot bot);
         abstract public bool IsChatOver();
         abstract public int GetReceivedCount();
+
+        protected List<HtmlElement> GetElementsByClassName(string tagName, string className)
+        {
+            HtmlElementCollection elements = webBrowser.Document.GetElementsByTagName(tagName);
+
+            var foundElements = new List<HtmlElement>();
+            foreach (HtmlElement element in elements)
+            {
+                if (element.GetAttribute("ClassName") == className)
+                {
+                    foundElements.Add(element);
+                }
+            }
+            return foundElements;
+        }
     }
 }

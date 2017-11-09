@@ -19,34 +19,21 @@ namespace Turingle
 
         public override string GetPartnerLastMessage()
         {
-           HtmlElementCollection messages = webBrowser.Document.GetElementsByTagName("div");
+            List<HtmlElement> elements = GetElementsByClassName("div", "youmsg stranger");
+            if ( elements.Count > 0 )
+                return elements[elements.Count - 1].InnerText.Replace("Stranger:", "");
 
-            HtmlElement lastMessageElement = null;
-            string lastMessage = String.Empty;
-            foreach (HtmlElement message in messages)
-            {
-                if (message.GetAttribute("className") == "youmsg stranger")
-                {
-                    lastMessageElement = message;
-                    lastMessage = lastMessageElement.InnerText.Replace("Stranger:", "");
-                }
-                    
-            }     
-
-            return lastMessage;
+            return String.Empty;
         }
 
         public override bool IsChatOver()
         {
-            HtmlElementCollection elements = webBrowser.Document.GetElementsByTagName("div");
-            foreach ( HtmlElement element in elements )
-            {
-                if (element.Id == "startNew")
-                {
-                    if (element.Style.ToString() == "display: block;")
-                        return true;
-                }    
-            }
+            HtmlElement element = webBrowser.Document.GetElementById("startNew");
+            if (element == null)
+                return false;
+            if (element.Style.ToString() == "display: block;")
+                return true;
+
             return false;
         }
 
@@ -76,17 +63,7 @@ namespace Turingle
 
         public override int GetReceivedCount()
         {
-            HtmlElementCollection elements = webBrowser.Document.GetElementsByTagName("div");
-
-            receivedCount = 0;
-            foreach (HtmlElement element in elements)
-            {
-                if (element.GetAttribute("ClassName") == "youmsg stranger")
-                    receivedCount++;
-            }
-
-            Debug.WriteLine("Received: " + receivedCount);
-            return receivedCount;
+            return GetElementsByClassName("div", "youmsg stranger").Count;
         }
     }
 }

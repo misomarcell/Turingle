@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Cleverbot.cs" />
     <Compile Include="ChatSite.cs" />
+    <Compile Include="Site_Shamchat.cs" />
     <Compile Include="TuringleGUI.cs">
       <SubType>Form</SubType>
     </Compile>

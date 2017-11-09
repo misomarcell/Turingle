@@ -12,6 +12,7 @@ namespace Turingle
 
         Cleverbot cleverBot;
         ChatSite chatSite;
+        Timer timer;
         int receivedCount = 0;
 
         public TuringleGUI()
@@ -20,14 +21,13 @@ namespace Turingle
             siteSelector.SelectedIndex = 0;
             Cleverbot.BotCreated += Bot_BotCreated;
 
-            Timer timer = new Timer() { Interval = 3000 };
+            timer = new Timer() { Interval = 3000 };
             timer.Tick += Timer_Tick;
-            timer.Start();
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (chatSite.IsChatOver())
+            if ( chatSite.IsChatOver() )
             {
                 chatSite.StartNewChat(cleverBot);
                 receivedCount = 0;
@@ -40,6 +40,8 @@ namespace Turingle
             {
                 receivedCount = temp_receivedCount;
                 SendAutoMessage();
+
+                Debug.WriteLine("Received " + receivedCount + " messages.");
             }
         }
 
@@ -52,24 +54,11 @@ namespace Turingle
         private void TuringleGUI_Load(object sender, EventArgs e)
         {
 
-
-
-            switch (siteSelector.Text)
-            {
-                case "7strangers.com":
-                    chatSite = new Site_7strangers(webBrowser1);
-                    break;
-                default:
-                    break;
-            }
-
-            webBrowser1.Navigate(chatSite.GetChatURL());
-            webBrowser1.DocumentCompleted += WebBrowser1_DocumentCompleted;
         }
 
         private void WebBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-           // throw new NotImplementedException();
+            buttonTestSite.Enabled = true;
         }
 
         private void buttonSend_Click(object sender, EventArgs e)
@@ -115,6 +104,26 @@ namespace Turingle
         private void buttonStartNew_Click(object sender, EventArgs e)
         {
             chatSite.StartNewChat(cleverBot);
+        }
+
+        private void buttonOpenSite_Click(object sender, EventArgs e)
+        {
+            switch (siteSelector.Text)
+            {
+                case "7strangers.com":
+                    chatSite = new Site_7strangers(webBrowser1);
+                    break;
+                case "shamchat.com":
+                    chatSite = new Site_Shamchat(webBrowser1);
+                    break;
+                default:
+                    break;
+            }
+
+            webBrowser1.Navigate(chatSite.GetChatURL());
+            webBrowser1.DocumentCompleted += WebBrowser1_DocumentCompleted;          
+
+            timer.Start();
         }
     }
 }

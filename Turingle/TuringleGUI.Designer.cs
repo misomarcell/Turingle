@@ -52,6 +52,7 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.autoReply = new System.Windows.Forms.CheckBox();
             this.buttonStartNew = new System.Windows.Forms.Button();
+            this.buttonOpenSite = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -144,7 +145,8 @@
             // 
             // buttonTestSite
             // 
-            this.buttonTestSite.Location = new System.Drawing.Point(203, 72);
+            this.buttonTestSite.Enabled = false;
+            this.buttonTestSite.Location = new System.Drawing.Point(64, 71);
             this.buttonTestSite.Name = "buttonTestSite";
             this.buttonTestSite.Size = new System.Drawing.Size(118, 23);
             this.buttonTestSite.TabIndex = 11;
@@ -234,6 +236,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.buttonOpenSite);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.siteSelector);
             this.groupBox2.Controls.Add(this.siteInput);
@@ -260,7 +263,8 @@
             this.siteSelector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.siteSelector.FormattingEnabled = true;
             this.siteSelector.Items.AddRange(new object[] {
-            "7strangers.com"});
+            "7strangers.com",
+            "shamchat.com"});
             this.siteSelector.Location = new System.Drawing.Point(64, 19);
             this.siteSelector.Name = "siteSelector";
             this.siteSelector.Size = new System.Drawing.Size(257, 21);
@@ -292,6 +296,7 @@
             // 
             // buttonStartNew
             // 
+            this.buttonStartNew.Enabled = false;
             this.buttonStartNew.Location = new System.Drawing.Point(6, 45);
             this.buttonStartNew.Name = "buttonStartNew";
             this.buttonStartNew.Size = new System.Drawing.Size(118, 23);
@@ -299,6 +304,16 @@
             this.buttonStartNew.Text = "New chat";
             this.buttonStartNew.UseVisualStyleBackColor = true;
             this.buttonStartNew.Click += new System.EventHandler(this.buttonStartNew_Click);
+            // 
+            // buttonOpenSite
+            // 
+            this.buttonOpenSite.Location = new System.Drawing.Point(203, 71);
+            this.buttonOpenSite.Name = "buttonOpenSite";
+            this.buttonOpenSite.Size = new System.Drawing.Size(118, 23);
+            this.buttonOpenSite.TabIndex = 16;
+            this.buttonOpenSite.Text = "Open Site";
+            this.buttonOpenSite.UseVisualStyleBackColor = true;
+            this.buttonOpenSite.Click += new System.EventHandler(this.buttonOpenSite_Click);
             // 
             // TuringleGUI
             // 
@@ -349,6 +364,7 @@
         private System.Windows.Forms.TextBox CID;
         private System.Windows.Forms.Button buttonStartNew;
         private System.Windows.Forms.CheckBox autoReply;
+        private System.Windows.Forms.Button buttonOpenSite;
     }
 }
 
