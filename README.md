@@ -7,5 +7,4 @@ Turingle is a hobbi project of mine. The plan is to connect some random chat sit
 3. Press the *Create* button
 4. Enter the site and let it talk
 
-![Demo 1](https://i.imgur.com/cFFhs5k.png)
-![Demo 2](https://i.imgur.com/qGmt6LF.png)
+![Demo](https://i.imgur.com/cFFhs5k.png)
