@@ -10,6 +10,7 @@ namespace Turingle
     public abstract class ChatSite
     {
         protected WebBrowser webBrowser { get; set; }
+        protected int receivedCount { get; set; }
 
         protected ChatSite(WebBrowser webBrowser)
         {
@@ -19,5 +20,8 @@ namespace Turingle
         abstract public string GetChatURL();
         abstract public string GetPartnerLastMessage();
         abstract public void SendMessage(string message);
+        abstract public void StartNewChat(Cleverbot bot);
+        abstract public bool IsChatOver();
+        abstract public int GetReceivedCount();
     }
 }

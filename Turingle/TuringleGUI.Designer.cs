@@ -50,6 +50,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.siteSelector = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.buttonStartNew = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -266,13 +268,37 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.checkBox1);
+            this.groupBox3.Controls.Add(this.buttonStartNew);
             this.groupBox3.Controls.Add(this.buttonSend);
             this.groupBox3.Location = new System.Drawing.Point(12, 371);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(327, 57);
+            this.groupBox3.Size = new System.Drawing.Size(327, 77);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Have fun";
+            // 
+            // buttonStartNew
+            // 
+            this.buttonStartNew.Location = new System.Drawing.Point(6, 45);
+            this.buttonStartNew.Name = "buttonStartNew";
+            this.buttonStartNew.Size = new System.Drawing.Size(118, 23);
+            this.buttonStartNew.TabIndex = 16;
+            this.buttonStartNew.Text = "New chat";
+            this.buttonStartNew.UseVisualStyleBackColor = true;
+            this.buttonStartNew.Click += new System.EventHandler(this.buttonStartNew_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(248, 49);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(73, 17);
+            this.checkBox1.TabIndex = 16;
+            this.checkBox1.Text = "Auto reply";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // TuringleGUI
             // 
@@ -292,6 +318,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -320,6 +347,8 @@
         private System.Windows.Forms.Button buttonNewConv;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox CID;
+        private System.Windows.Forms.Button buttonStartNew;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

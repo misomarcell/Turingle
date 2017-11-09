@@ -36,6 +36,20 @@ namespace Turingle
             return lastMessage;
         }
 
+        public override bool IsChatOver()
+        {
+            HtmlElementCollection elements = webBrowser.Document.GetElementsByTagName("div");
+            foreach ( HtmlElement element in elements )
+            {
+                if (element.Id == "startNew")
+                {
+                    if (element.Style.ToString() == "display: block;")
+                        return true;
+                }    
+            }
+            return false;
+        }
+
         public override void SendMessage(string message)
         {
             HtmlElement inputField = webBrowser.Document.GetElementById("chatmsg");
@@ -52,6 +66,27 @@ namespace Turingle
                 sendButton.InvokeMember("Click");
 
             Debug.WriteLine("Message sent: " + message);
+        }
+
+        public override void StartNewChat(Cleverbot bot)
+        {
+            bot.NewConversation();
+            webBrowser.Document.InvokeScript("startNewChat");
+        }
+
+        public override int GetReceivedCount()
+        {
+            HtmlElementCollection elements = webBrowser.Document.GetElementsByTagName("div");
+
+            receivedCount = 0;
+            foreach (HtmlElement element in elements)
+            {
+                if (element.GetAttribute("ClassName") == "youmsg stranger")
+                    receivedCount++;
+            }
+
+            Debug.WriteLine("Received: " + receivedCount);
+            return receivedCount;
         }
     }
 }
