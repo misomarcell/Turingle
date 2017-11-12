@@ -47,15 +47,17 @@
             this.buttonHelp = new System.Windows.Forms.Button();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.buttonOpenSite = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.siteSelector = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.autoReply = new System.Windows.Forms.CheckBox();
             this.buttonStartNew = new System.Windows.Forms.Button();
-            this.buttonOpenSite = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // apiKey
@@ -120,11 +122,12 @@
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(345, 12);
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(334, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(619, 494);
+            this.webBrowser1.Size = new System.Drawing.Size(640, 518);
             this.webBrowser1.TabIndex = 7;
             // 
             // siteInput
@@ -179,7 +182,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.buttonTestBot);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(327, 241);
             this.groupBox1.TabIndex = 13;
@@ -242,12 +245,22 @@
             this.groupBox2.Controls.Add(this.siteInput);
             this.groupBox2.Controls.Add(this.buttonTestSite);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Location = new System.Drawing.Point(12, 259);
+            this.groupBox2.Location = new System.Drawing.Point(3, 250);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(327, 106);
             this.groupBox2.TabIndex = 14;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Chat site";
+            // 
+            // buttonOpenSite
+            // 
+            this.buttonOpenSite.Location = new System.Drawing.Point(203, 71);
+            this.buttonOpenSite.Name = "buttonOpenSite";
+            this.buttonOpenSite.Size = new System.Drawing.Size(118, 23);
+            this.buttonOpenSite.TabIndex = 16;
+            this.buttonOpenSite.Text = "Open Site";
+            this.buttonOpenSite.UseVisualStyleBackColor = true;
+            this.buttonOpenSite.Click += new System.EventHandler(this.buttonOpenSite_Click);
             // 
             // label5
             // 
@@ -275,7 +288,7 @@
             this.groupBox3.Controls.Add(this.autoReply);
             this.groupBox3.Controls.Add(this.buttonStartNew);
             this.groupBox3.Controls.Add(this.buttonSend);
-            this.groupBox3.Location = new System.Drawing.Point(12, 371);
+            this.groupBox3.Location = new System.Drawing.Point(3, 362);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(327, 77);
             this.groupBox3.TabIndex = 15;
@@ -296,7 +309,6 @@
             // 
             // buttonStartNew
             // 
-            this.buttonStartNew.Enabled = false;
             this.buttonStartNew.Location = new System.Drawing.Point(6, 45);
             this.buttonStartNew.Name = "buttonStartNew";
             this.buttonStartNew.Size = new System.Drawing.Size(118, 23);
@@ -305,25 +317,25 @@
             this.buttonStartNew.UseVisualStyleBackColor = true;
             this.buttonStartNew.Click += new System.EventHandler(this.buttonStartNew_Click);
             // 
-            // buttonOpenSite
+            // panel1
             // 
-            this.buttonOpenSite.Location = new System.Drawing.Point(203, 71);
-            this.buttonOpenSite.Name = "buttonOpenSite";
-            this.buttonOpenSite.Size = new System.Drawing.Size(118, 23);
-            this.buttonOpenSite.TabIndex = 16;
-            this.buttonOpenSite.Text = "Open Site";
-            this.buttonOpenSite.UseVisualStyleBackColor = true;
-            this.buttonOpenSite.Click += new System.EventHandler(this.buttonOpenSite_Click);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(334, 518);
+            this.panel1.TabIndex = 16;
             // 
             // TuringleGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(974, 518);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.webBrowser1);
+            this.Controls.Add(this.panel1);
+            this.MinimumSize = new System.Drawing.Size(350, 480);
             this.Name = "TuringleGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Turingle - Talk with robots!";
@@ -334,6 +346,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -365,6 +378,7 @@
         private System.Windows.Forms.Button buttonStartNew;
         private System.Windows.Forms.CheckBox autoReply;
         private System.Windows.Forms.Button buttonOpenSite;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
